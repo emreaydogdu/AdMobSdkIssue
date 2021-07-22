@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        // THIS IS FOR SWITCHING DayNight-Mode
         if (!getMode()) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         } else {
@@ -30,12 +31,8 @@ public class MainActivity extends AppCompatActivity {
         refreshFragment();
 
         AdView mAdView = findViewById(R.id.adView);
-        if (true){
-            AdRequest adRequest = new AdRequest.Builder().build();
-            mAdView.loadAd(adRequest);
-        } else {
-            mAdView.setVisibility(View.GONE);
-        }
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         findViewById(R.id.switchDarkMode).setOnClickListener(v -> {
             changePreference();
